@@ -1,16 +1,20 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'node:latest' } }
+    agent any
     stages {
-        stage('Initialize docker'){
-            steps {
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }
-        }
         stage('build') {
             steps {
-                sh 'node --version'
+                echo 'Building application...!'
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'Testing application...!'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'Deploying application...!'
             }
         }
     }

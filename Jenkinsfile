@@ -2,7 +2,7 @@
 pipeline {
     agent { docker { image 'node:latest' } }
     stages {
-        stage('Initialize'){
+        stage('Initialize docker'){
             def dockerHome = tool 'myDocker'
             env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
